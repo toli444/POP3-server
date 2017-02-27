@@ -25,14 +25,23 @@ public class DatabaseService {
     }
 
     public void initDatabase() {
+            try {
+                this.database.executeUpdate("DROP TABLE users");
+                this.fillDatabase();
+            } catch (SQLException e) {
+                this.fillDatabase();
+            }
+
+    }
+
+    private void fillDatabase() {
         try {
-            this.database.executeUpdate("DROP TABLE users");
             this.database.executeUpdate(
                     "CREATE TABLE users( " +
                             "username VARCHAR(255), " +
                             "password VARCHAR(255), " +
                             "PRIMARY KEY( username )" +
-                        ");");
+                            ");");
             this.database.executeUpdate(
                     "INSERT INTO users VALUES\n" +
                             "  ('tolik', '12345'),\n" +
