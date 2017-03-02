@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="31e9eba9-c166-4e0b-8986-91bd4d0a9012" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
+    <list default="true" id="31e9eba9-c166-4e0b-8986-91bd4d0a9012" name="Default" comment="Add logger mechanism">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/DatabaseService.class" afterPath="$PROJECT_DIR$/target/classes/DatabaseService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Server$ClientSession.class" afterPath="$PROJECT_DIR$/target/classes/Server$ClientSession.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Server.class" afterPath="$PROJECT_DIR$/target/classes/Server.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Pop3Server.iml" afterPath="$PROJECT_DIR$/Pop3Server.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/DatabaseService.java" afterPath="$PROJECT_DIR$/src/main/java/DatabaseService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/DatabaseServiceInterface.java" afterPath="$PROJECT_DIR$/src/main/java/DatabaseServiceInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/Server.java" afterPath="$PROJECT_DIR$/src/main/java/Server.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -40,37 +38,38 @@
       <file leaf-file-name="DatabaseService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1577">
-              <caret line="89" column="13" lean-forward="false" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
+            <state relative-caret-position="-2785">
+              <caret line="86" column="70" lean-forward="false" selection-start-line="86" selection-start-column="70" selection-end-line="86" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-                <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-                <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-                <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-                <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-                <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-                <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-                <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-                <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-                <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-                <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-                <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-                <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-                <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-                <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-                <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-                <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+                <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+                <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+                <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+                <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+                <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+                <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+                <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+                <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+                <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+                <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+                <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+                <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+                <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+                <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+                <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+                <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+                <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+                <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1368">
-              <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+            <state relative-caret-position="304">
+              <caret line="242" column="40" lean-forward="false" selection-start-line="242" selection-start-column="40" selection-end-line="242" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pop3Server.log" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pop3Server.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pop3Server.log">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -101,9 +100,11 @@
       <file leaf-file-name="DatabaseServiceInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseServiceInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="152">
+              <caret line="9" column="61" lean-forward="false" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -148,12 +149,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/test/java/ServerTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DatabaseServiceInterface.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/demoApplication.log" />
-        <option value="$PROJECT_DIR$/src/main/java/Server.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DatabaseService.java" />
         <option value="$PROJECT_DIR$/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/DatabaseServiceInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DatabaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Server.java" />
       </list>
     </option>
   </component>
@@ -191,8 +192,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -270,6 +269,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -715,7 +716,9 @@
       <workItem from="1488387664062" duration="3167000" />
       <workItem from="1488396167447" duration="867000" />
       <workItem from="1488435539429" duration="3883000" />
-      <workItem from="1488441227729" duration="40000" />
+      <workItem from="1488441227729" duration="778000" />
+      <workItem from="1488490994992" duration="2188000" />
+      <workItem from="1488493678954" duration="111000" />
     </task>
     <task id="LOCAL-00001" summary="Fix bug with database drop">
       <created>1488206198292</created>
@@ -731,11 +734,18 @@
       <option name="project" value="LOCAL" />
       <updated>1488397476832</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add logger mechanism">
+      <created>1488441398780</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1488441398780</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36076000" />
+    <option name="totallyTimeSpent" value="39113000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
@@ -781,10 +791,13 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix bug with database drop" />
     <MESSAGE value="Fill database with real emails" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fill database with real emails" />
+    <MESSAGE value="Add logger mechanism" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add logger mechanism" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -814,23 +827,24 @@
           <caret line="159" column="20" lean-forward="false" selection-start-line="159" selection-start-column="20" selection-end-line="159" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -870,7 +884,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
           <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -896,23 +912,24 @@
           <caret line="95" column="46" lean-forward="false" selection-start-line="95" selection-start-column="46" selection-end-line="95" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -952,23 +969,24 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -1005,23 +1023,24 @@
           <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -1058,23 +1077,24 @@
           <caret line="97" column="50" lean-forward="false" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -1111,23 +1131,24 @@
           <caret line="60" column="55" lean-forward="false" selection-start-line="60" selection-start-column="47" selection-end-line="60" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -1164,23 +1185,24 @@
           <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -1209,23 +1231,24 @@
           <caret line="88" column="5" lean-forward="false" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -1254,23 +1277,24 @@
           <caret line="44" column="4" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
           </folding>
         </state>
       </provider>
@@ -1324,51 +1348,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/demoApplication.log" />
     <entry file="file://$PROJECT_DIR$/pop3ServerLog.log" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseServiceInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="28" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1577">
-          <caret line="89" column="13" lean-forward="false" selection-start-line="89" selection-start-column="13" selection-end-line="89" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1488440835379" expanded="true" signature="1120:1136" ph="DROP TABLE u... " />
-            <marker date="1488440835379" expanded="true" signature="1181:1200" ph="DROP TABLE m... " />
-            <marker date="1488440835379" expanded="true" signature="1547:1769" ph="CREATE TABLE... users" />
-            <marker date="1488440835379" expanded="true" signature="1836:2082" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="2279:2502" ph="CREATE TABLE... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4569" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="4524:4586" ph="select messa... messages" />
-            <marker date="1488440835379" expanded="true" signature="6309:6379" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6404" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6423" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6309:6424" ph="INSERT INTO users... " />
-            <marker date="1488440835379" expanded="true" signature="6670:6696" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7282" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7299" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7316" ph="SELECT usern... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7336" ph="SELECT * FRO... users" />
-            <marker date="1488440835379" expanded="true" signature="7247:7337" ph="SELECT * FRO... users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -1382,6 +1361,54 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseServiceInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="9" column="61" lean-forward="false" selection-start-line="9" selection-start-column="61" selection-end-line="9" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/DatabaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2785">
+          <caret line="86" column="70" lean-forward="false" selection-start-line="86" selection-start-column="70" selection-end-line="86" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1488493792421" expanded="true" signature="1286:1302" ph="DROP TABLE u... " />
+            <marker date="1488493792421" expanded="true" signature="1347:1366" ph="DROP TABLE m... " />
+            <marker date="1488493792421" expanded="true" signature="1713:1935" ph="CREATE TABLE... users" />
+            <marker date="1488493792421" expanded="true" signature="2002:2248" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="2445:2668" ph="CREATE TABLE... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4728" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="4683:4745" ph="select messa... messages" />
+            <marker date="1488493792421" expanded="true" signature="6468:6538" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6563" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6582" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6468:6583" ph="INSERT INTO users... " />
+            <marker date="1488493792421" expanded="true" signature="6829:6855" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7441" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7458" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7475" ph="SELECT usern... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7495" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="7406:7496" ph="SELECT * FRO... users" />
+            <marker date="1488493792421" expanded="true" signature="8008:8072" ph="SELECT messa... messages" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="242" column="40" lean-forward="false" selection-start-line="242" selection-start-column="40" selection-end-line="242" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

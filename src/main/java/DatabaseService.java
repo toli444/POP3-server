@@ -10,8 +10,12 @@ import java.util.Date;
 public class DatabaseService implements DatabaseServiceInterface {
     private static int uniqueId = 1;
     private Statement database;
+    private Properties props = System.getProperties();
 
     public DatabaseService() {
+        props.put("mail.host", "smtp.dummydomain.com");
+        props.put("mail.transport.protocol", "smtp");
+
         this.loadDatabase();
         this.initDatabase();
     }
@@ -232,5 +236,44 @@ public class DatabaseService implements DatabaseServiceInterface {
         }
 
         return false;
+    }
+
+    public ArrayList<MimeMessage> getUsersMessages(String username) {
+        String query;
+        String message;
+        ArrayList<MimeMessage> messages = new ArrayList<MimeMessage>();
+
+        try {
+            query = "SELECT message FROM messages WHERE username=\"" + username + "\";";
+            this.database.executeQuery(query);
+            ResultSet rs = this.database.getResultSet();
+
+            while(rs.next()) {
+                message = rs.getString("message");
+                messages.add(createMimeMessageFromPath(message));
+            }
+
+        } catch (SQLException e) {
+
+        }
+
+        return messages;
+    }
+
+    private MimeMessage createMimeMessageFromPath(String pathToMessage) {
+        Session mailSession = Session.getDefaultInstance(props, null);
+        InputStream source = null;
+        MimeMessage message = null;
+
+        try {
+            source = new FileInputStream(pathToMessage);
+            message = new MimeMessage(mailSession, source);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return message;
     }
 }

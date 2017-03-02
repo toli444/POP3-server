@@ -1,7 +1,8 @@
-import com.sun.org.apache.bcel.internal.generic.GOTO;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.io.*;
 import java.net.*;
 import java.text.SimpleDateFormat;
@@ -127,6 +128,7 @@ public class Server {
         Pattern quitRegExp = Pattern.compile("^QUIT$");
         Pattern usernameRegExp = Pattern.compile("^USERNAME (.{1,200})$");
         Pattern passwordRegExp = Pattern.compile("^PASS (.{1,200})$");
+        Pattern statRegExp = Pattern.compile("^STAT$");
 
         ClientSession(Socket socket) {
             id = ++clientUniqueId;
@@ -157,6 +159,7 @@ public class Server {
                     //Handle QUIT response
                     if (quitRegExp.matcher(clientRespone).find()) {
                         this.keepGoing = false;
+                        this.writeToClient("+OK dewey POP3 server signing off");
                         continue;
                     }
 
@@ -191,12 +194,22 @@ public class Server {
                             }
                         }
                     } else {
+                        if (statRegExp.matcher(clientRespone).find()) {
+                            ArrayList<MimeMessage> messages = databaseService.getUsersMessages(username);
+                            int amountOfMessages = messages.size();
+                            int totalSize = this.countTotalSizeOfMimeMessages(messages);
 
+                            this.writeToClient("+OK " + amountOfMessages + " " + totalSize);
+
+                            continue;
+                        }
                     }
 
                     this.writeToClient("-ERR hmm, wrong command. Try another one");
                 }
             } catch (IOException e) {
+                e.printStackTrace();
+            } catch (MessagingException e) {
                 e.printStackTrace();
             }
 
@@ -225,6 +238,16 @@ public class Server {
             log("From client (" + id + "): " + clientRespone);
 
             return clientRespone;
+        }
+
+        private int countTotalSizeOfMimeMessages(ArrayList<MimeMessage> messages) throws MessagingException {
+            int totalSize = 0;
+
+            for (MimeMessage message : messages) {
+                totalSize += message.getSize();
+            }
+
+            return totalSize;
         }
     }
 }
