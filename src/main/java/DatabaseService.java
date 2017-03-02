@@ -89,7 +89,7 @@ public class DatabaseService implements DatabaseServiceInterface {
                 this.savePathToUsersMessageToDatabase(pathToFile, "tolik");
             }
 
-            for (int i=5; i <= 10; i++) {
+            for (int i=6; i <= 10; i++) {
                 String pathToFile = this.saveUsersMessageLocally(folder.getMessage(i), "tolik");
                 this.savePathToUsersMessageToDatabase(pathToFile, "admin");
             }

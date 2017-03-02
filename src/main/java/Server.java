@@ -1,4 +1,6 @@
 import com.sun.org.apache.bcel.internal.generic.GOTO;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 import java.io.*;
 import java.net.*;
@@ -6,9 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-
-
 
 /*
  * The server that can be run both as a console application or a GUI
@@ -26,6 +25,8 @@ public class Server {
     // the boolean that will be turned of to stop the server
     private boolean keepGoing;
 
+    static Logger logger = Logger.getLogger(Server.class);
+
 
     public Server(int port) {
         this.port = port;
@@ -35,6 +36,7 @@ public class Server {
 
     public void start() {
         this.keepGoing = true;
+        log("Server started");
 		/* create socket server and wait for connection requests */
         try {
             // the socket used by the server
@@ -42,7 +44,7 @@ public class Server {
 
             // infinite loop to wait for connections
             while(keepGoing) {
-                log("Server waiting for Clients on port " + port + ".");
+                System.out.println("Server waiting for new Clients on port " + port + ".");
                 Socket socket = this.serverSocket.accept(); // accept connection
                 // if I was asked to stop
                 if(!keepGoing) {
@@ -67,15 +69,16 @@ public class Server {
                 ClientSession clientSession = this.clients.get(i);
                 clientSession.stopSession();
             }
-        }
-        catch(Exception e) {
+        } catch(Exception e) {
             log("Exception closing the server and clients: " + e);
+        } finally {
+            log("Server stopped");
         }
     }
 
     private void log(String msg) {
         String messageWithTime = time.format(new Date()) + ": " + msg + "\n";
-        System.out.print(messageWithTime);
+        logger.info(messageWithTime);
     }
 
     private void acceptClient(Socket socket) {
@@ -101,6 +104,9 @@ public class Server {
     public static void main(String[] args) {
         // start server on port 1500 unless a PortNumber is specified
         int portNumber = 1500;
+        //init logger
+        PropertyConfigurator.configure("log4j.properties");
+
 
         // create a server object and start it
         Server server = new Server(portNumber);
@@ -118,9 +124,9 @@ public class Server {
         boolean isAuthenticated;
         boolean keepGoing = true;
 
-        Pattern quitRegExp = Pattern.compile("QUIT");
-        Pattern usernameRegExp = Pattern.compile("USERNAME (.{1,200})");
-        Pattern passwordRegExp = Pattern.compile("PASS (.{1,200})");
+        Pattern quitRegExp = Pattern.compile("^QUIT$");
+        Pattern usernameRegExp = Pattern.compile("^USERNAME (.{1,200})$");
+        Pattern passwordRegExp = Pattern.compile("^PASS (.{1,200})$");
 
         ClientSession(Socket socket) {
             id = ++clientUniqueId;
@@ -146,12 +152,12 @@ public class Server {
                 toClient.println("+OK POP3 Tolyan and Fedorovich server ready. Who are you?");
 
                 while (this.keepGoing) {
-                    clientRespone = fromClient.readLine();
-                    log("Client " + id + " sent us: " + clientRespone);
+                    clientRespone = this.readFromClient();
 
                     //Handle QUIT response
                     if (quitRegExp.matcher(clientRespone).find()) {
                         this.keepGoing = false;
+                        continue;
                     }
 
                     if (!this.isAuthenticated) {
@@ -162,9 +168,9 @@ public class Server {
 
                                 if (databaseService.isUserExist(user)) {
                                     username = user;
-                                    toClient.println("+OK Wait for your password");
+                                    this.writeToClient("+OK Wait for your password");
                                 } else {
-                                    toClient.println("-ERR I don't know anyone like this. Try again");
+                                    this.writeToClient("-ERR I don't know anyone like this. Try again");
                                 }
 
                                 continue;
@@ -176,9 +182,9 @@ public class Server {
 
                                 if (databaseService.authenticateUser(username, password)) {
                                     this.isAuthenticated = true;
-                                    toClient.println("+OK You were authenticated");
+                                    this.writeToClient("+OK You were authenticated");
                                 } else {
-                                    toClient.println("-ERR You're lier");
+                                    this.writeToClient("-ERR You bad boy");
                                 }
 
                                 continue;
@@ -188,7 +194,7 @@ public class Server {
 
                     }
 
-                    toClient.println("-ERR hmm, wrong command. Try another one");
+                    this.writeToClient("-ERR hmm, wrong command. Try another one");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -209,16 +215,16 @@ public class Server {
             }
         }
 
-        private String getPassword() throws IOException {
-            String str = fromClient.readLine();
-            Matcher m = passwordRegExp.matcher(str);
+        private void writeToClient(String message) {
+            toClient.println(message);
+            log("To client (" + id + "): " + message);
+        }
 
-            if (m.find()) {
-                String password = m.group(1);
-                return password;
-            }
+        private String readFromClient() throws IOException {
+            String clientRespone = fromClient.readLine();
+            log("From client (" + id + "): " + clientRespone);
 
-            return null;
+            return clientRespone;
         }
     }
 }
