@@ -2,7 +2,6 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import java.io.*;
 import java.net.*;
 import java.text.SimpleDateFormat;
@@ -125,10 +124,13 @@ public class Server {
         boolean isAuthenticated;
         boolean keepGoing = true;
 
+        Mailbox mailbox;
+
         Pattern quitRegExp = Pattern.compile("^QUIT$");
         Pattern usernameRegExp = Pattern.compile("^USERNAME (.{1,200})$");
         Pattern passwordRegExp = Pattern.compile("^PASS (.{1,200})$");
         Pattern statRegExp = Pattern.compile("^STAT$");
+        Pattern listRegExp = Pattern.compile("^LIST$");
 
         ClientSession(Socket socket) {
             id = ++clientUniqueId;
@@ -190,16 +192,35 @@ public class Server {
                                     this.writeToClient("-ERR You bad boy");
                                 }
 
+                                //Now users session is open and we
+                                // could get all messages to handle them later
+                                this.mailbox = new Mailbox(databaseService.getUsersMessages(username));
+
                                 continue;
                             }
                         }
                     } else {
                         if (statRegExp.matcher(clientRespone).find()) {
-                            ArrayList<MimeMessage> messages = databaseService.getUsersMessages(username);
-                            int amountOfMessages = messages.size();
-                            int totalSize = this.countTotalSizeOfMimeMessages(messages);
+                            int amountOfMessages = this.mailbox.getAmountOfAllMessages();
+                            int totalSize = this.mailbox.countTotalSizeOfMessages();
 
                             this.writeToClient("+OK " + amountOfMessages + " " + totalSize);
+
+                            continue;
+                        }
+
+                        if (listRegExp.matcher(clientRespone).find()) {
+                            String response = "+OK Mailbox scan listing follows\n";
+
+                            int amountOfMessages = this.mailbox.getAmountOfAllMessages();
+
+                            for (int i = 0; i < amountOfMessages; i++) {
+                                response += (i + 1) + " " + this.mailbox.getSizeOfMessage(i) + "\n";
+                            }
+
+                            response += ".";
+
+                            this.writeToClient(response);
 
                             continue;
                         }
@@ -238,16 +259,6 @@ public class Server {
             log("From client (" + id + "): " + clientRespone);
 
             return clientRespone;
-        }
-
-        private int countTotalSizeOfMimeMessages(ArrayList<MimeMessage> messages) throws MessagingException {
-            int totalSize = 0;
-
-            for (MimeMessage message : messages) {
-                totalSize += message.getSize();
-            }
-
-            return totalSize;
         }
     }
 }

@@ -107,7 +107,7 @@ public class DatabaseService implements DatabaseServiceInterface {
             e.printStackTrace();
         }
 
-        this.displayAllUsersMessages("tolik");
+        //this.displayAllUsersMessages("tolik");
     }
 
     private String saveUsersMessageLocally(Message msg, String username) throws MessagingException, IOException {
