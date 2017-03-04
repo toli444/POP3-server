@@ -121,8 +121,10 @@ public class Server {
         int id;
         PrintWriter toClient;
         BufferedReader fromClient;
-        boolean isAuthenticated;
         boolean keepGoing = true;
+
+        String username = null;
+        boolean isAuthenticated;
 
         Mailbox mailbox;
 
@@ -131,6 +133,8 @@ public class Server {
         Pattern passwordRegExp = Pattern.compile("^PASS (.{1,200})$");
         Pattern statRegExp = Pattern.compile("^STAT$");
         Pattern listRegExp = Pattern.compile("^LIST$");
+        Pattern retrRegExp = Pattern.compile("^RETR ([0-9]{1,200})");
+        Pattern topRegExp = Pattern.compile("^TOP ([0-9]{1,200}) ([0-9]{1,200})");
 
         ClientSession(Socket socket) {
             id = ++clientUniqueId;
@@ -150,7 +154,6 @@ public class Server {
         public void run() {
             Matcher matcher;
             String clientRespone;
-            String username = null;
 
             try {
                 toClient.println("+OK POP3 Tolyan and Fedorovich server ready. Who are you?");
@@ -158,69 +161,64 @@ public class Server {
                 while (this.keepGoing) {
                     clientRespone = this.readFromClient();
 
+                    if (clientRespone == null) {
+                        this.keepGoing = false;
+                        break;
+                    }
+
                     //Handle QUIT response
                     if (quitRegExp.matcher(clientRespone).find()) {
                         this.keepGoing = false;
                         this.writeToClient("+OK dewey POP3 server signing off");
-                        continue;
+                        break;
                     }
 
                     if (!this.isAuthenticated) {
                         if (username == null) {
                             matcher = usernameRegExp.matcher(clientRespone);
                             if (matcher.find()) {
-                                String user = matcher.group(1);
-
-                                if (databaseService.isUserExist(user)) {
-                                    username = user;
-                                    this.writeToClient("+OK Wait for your password");
-                                } else {
-                                    this.writeToClient("-ERR I don't know anyone like this. Try again");
-                                }
-
+                                handleUsername(matcher.group(1));
                                 continue;
                             }
                         } else {
                             matcher = passwordRegExp.matcher(clientRespone);
                             if (matcher.find()) {
-                                String password = matcher.group(1);
-
-                                if (databaseService.authenticateUser(username, password)) {
-                                    this.isAuthenticated = true;
-                                    this.writeToClient("+OK You were authenticated");
-                                } else {
-                                    this.writeToClient("-ERR You bad boy");
-                                }
+                                handlePassword(matcher.group(1));
 
                                 //Now users session is open and we
-                                // could get all messages to handle them later
-                                this.mailbox = new Mailbox(databaseService.getUsersMessages(username));
-
+                                // could initialize his mailbox to work with it later
+                                this.mailbox = new Mailbox(username, databaseService);
                                 continue;
                             }
                         }
                     } else {
                         if (statRegExp.matcher(clientRespone).find()) {
-                            int amountOfMessages = this.mailbox.getAmountOfAllMessages();
-                            int totalSize = this.mailbox.countTotalSizeOfMessages();
-
-                            this.writeToClient("+OK " + amountOfMessages + " " + totalSize);
-
+                            statCommand();
                             continue;
                         }
 
                         if (listRegExp.matcher(clientRespone).find()) {
-                            String response = "+OK Mailbox scan listing follows\n";
+                            listCommand();
+                            continue;
+                        }
 
-                            int amountOfMessages = this.mailbox.getAmountOfAllMessages();
+                        matcher = retrRegExp.matcher(clientRespone);
+                        if (matcher.find()) {
+                            String i = matcher.group(1);
+                            int index = Integer.parseInt(i);
+                            retrCommand(index);
 
-                            for (int i = 0; i < amountOfMessages; i++) {
-                                response += (i + 1) + " " + this.mailbox.getSizeOfMessage(i) + "\n";
-                            }
+                            continue;
+                        }
 
-                            response += ".";
+                        matcher = topRegExp.matcher(clientRespone);
+                        if (matcher.find()) {
+                            String i = matcher.group(1);
+                            String sz = matcher.group(2);
+                            int index = Integer.parseInt(i) - 1;
+                            int amountOfLines = Integer.parseInt(sz);
 
-                            this.writeToClient(response);
+                            topCommand(index, amountOfLines);
 
                             continue;
                         }
@@ -246,6 +244,73 @@ public class Server {
             }
             catch(IOException e) {
                 e.printStackTrace();
+            }
+        }
+
+        private void handleUsername(String username) {
+            if (databaseService.isUserExist(username)) {
+                this.writeToClient("+OK Wait for your password");
+                this.username = username;
+            } else {
+                this.writeToClient("-ERR I don't know anyone like this. Try again");
+            }
+        }
+
+        private void handlePassword(String password) {
+            if (databaseService.authenticateUser(this.username, password)) {
+                this.isAuthenticated = true;
+                this.writeToClient("+OK You were authenticated");
+            } else {
+                this.writeToClient("-ERR You bad boy");
+            }
+        }
+
+        private void statCommand() throws MessagingException {
+            int amountOfMessages = this.mailbox.getAmountOfAllMessages();
+            int totalSize = this.mailbox.countTotalSizeOfMessages();
+
+            this.writeToClient("+OK " + amountOfMessages + " " + totalSize);
+        }
+
+        private void listCommand() throws MessagingException {
+            String response = "+OK Mailbox scan listing follows\n";
+
+            int amountOfMessages = this.mailbox.getAmountOfAllMessages();
+
+            for (int i = 0; i < amountOfMessages; i++) {
+                response += (i + 1) + " " + this.mailbox.getSizeOfMessage(i) + "\n";
+            }
+
+            response += ".";
+
+            this.writeToClient(response);
+        }
+
+        private void retrCommand(int indexOfMessage) throws MessagingException {
+            String response = "+OK " + this.mailbox.getSizeOfMessage(indexOfMessage) + "\n";
+            response += this.mailbox.getWholeMessage(indexOfMessage);
+
+            this.writeToClient(response);
+        }
+
+        private void topCommand(int index, int amountOfLines) throws MessagingException {
+            String wholeMessage = this.mailbox.getWholeMessage(index);
+
+            if (wholeMessage == null) {
+                this.writeToClient("-ERR Wrong message index");
+            }
+
+            String lines[] = wholeMessage.split("\\r?\\n");
+
+            String response = "+OK " + this.mailbox.getSizeOfMessage(index) + "\n";
+            if (amountOfLines <= lines.length) {
+                for (int x = 0; x < amountOfLines; x++) {
+                    response += lines[x] + "\n";
+                }
+
+                this.writeToClient(response);
+            } else {
+                this.writeToClient("-ERR This message doesn't have specified amount of lines");
             }
         }
 

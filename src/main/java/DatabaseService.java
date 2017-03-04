@@ -1,21 +1,21 @@
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 import java.io.*;
 import java.sql.*;
 import java.util.*;
-import java.util.Date;
 
 
 public class DatabaseService implements DatabaseServiceInterface {
     private static int uniqueId = 1;
     private Statement database;
-    private Properties props = System.getProperties();
 
     public DatabaseService() {
-        props.put("mail.host", "smtp.dummydomain.com");
-        props.put("mail.transport.protocol", "smtp");
-
         this.loadDatabase();
         this.initDatabase();
     }
@@ -79,12 +79,16 @@ public class DatabaseService implements DatabaseServiceInterface {
             e.printStackTrace();
         }
 
+        fillDatabaseWithGmailsEmails();
+    }
+
+    private void  fillDatabaseWithGmailsEmails() {
         Properties props = System.getProperties();
         props.setProperty("mail.store.protocol", "imaps");
         try {
             Session session = Session.getDefaultInstance(props, null);
             javax.mail.Store store = session.getStore("imaps");
-            store.connect("imap.gmail.com", xxx_mail_xxx, xxx_pass_xxx);
+            store.connect("imap.gmail.com", "toli44777@gmail.com", "to1110no");
             Folder folder = store.getFolder("INBOX");
             folder.open(Folder.READ_ONLY);
 
@@ -106,8 +110,6 @@ public class DatabaseService implements DatabaseServiceInterface {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        //this.displayAllUsersMessages("tolik");
     }
 
     private String saveUsersMessageLocally(Message msg, String username) throws MessagingException, IOException {
@@ -126,54 +128,6 @@ public class DatabaseService implements DatabaseServiceInterface {
         }
 
         return fileToSave.getAbsolutePath();
-    }
-
-    private void displayAllUsersMessages(String username) {
-        String query;
-
-        if (this.isUserExist(username)) {
-            try {
-                String pathToMessage;
-
-                query = "select message from messages where username='" + username + "';\n";
-                this.database.executeQuery(query);
-                ResultSet rs = this.database.getResultSet();
-
-                while(rs.next()) {
-                    pathToMessage = rs.getString("message");
-                    display(new File(pathToMessage));
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void display(File emlFile) {
-        Properties props = System.getProperties();
-        props.put("mail.host", "smtp.tolik.com");
-        props.put("mail.transport.protocol", "smtp");
-
-        Session mailSession = Session.getDefaultInstance(props, null);
-
-        try {
-            InputStream source = new FileInputStream(emlFile);
-            MimeMessage message = new MimeMessage(mailSession, source);
-
-            System.out.println("Subject : " + message.getSubject());
-            System.out.println("From : " + message.getFrom()[0]);
-            System.out.println("--------------");
-            System.out.println("Body : " +  message.getContent());
-            System.out.println();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private static String sanitizeFilename(String name) {
@@ -238,10 +192,10 @@ public class DatabaseService implements DatabaseServiceInterface {
         return false;
     }
 
-    public ArrayList<MimeMessage> getUsersMessages(String username) {
+    public ArrayList<String> getUsersMessages(String username) {
         String query;
         String message;
-        ArrayList<MimeMessage> messages = new ArrayList<MimeMessage>();
+        ArrayList<String> messages = new ArrayList<String>();
 
         try {
             query = "SELECT message FROM messages WHERE username=\"" + username + "\";";
@@ -250,7 +204,7 @@ public class DatabaseService implements DatabaseServiceInterface {
 
             while(rs.next()) {
                 message = rs.getString("message");
-                messages.add(createMimeMessageFromPath(message));
+                messages.add(message);
             }
 
         } catch (SQLException e) {
@@ -260,20 +214,93 @@ public class DatabaseService implements DatabaseServiceInterface {
         return messages;
     }
 
-    private MimeMessage createMimeMessageFromPath(String pathToMessage) {
-        Session mailSession = Session.getDefaultInstance(props, null);
-        InputStream source = null;
-        MimeMessage message = null;
-
+    private String createMessage(String to, String from, String subject, String body, List<File> attachments) {
         try {
-            source = new FileInputStream(pathToMessage);
-            message = new MimeMessage(mailSession, source);
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            Message message = new MimeMessage(Session.getInstance(System.getProperties()));
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject(subject);
+            // create the message part
+            MimeBodyPart content = new MimeBodyPart();
+            // fill message
+            content.setText(body);
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(content);
+            // add attachments
+            for(File file : attachments) {
+                MimeBodyPart attachment = new MimeBodyPart();
+                DataSource source = new FileDataSource(file);
+                attachment.setDataHandler(new DataHandler(source));
+                attachment.setFileName(file.getName());
+                multipart.addBodyPart(attachment);
+            }
+            // integration
+            message.setContent(multipart);
+            // store file
+
+            File file = new File("message" + this.uniqueId + ".eml");
+            message.writeTo(new FileOutputStream(file));
+
+            return file.getAbsolutePath();
+
+        } catch (MessagingException ex) {
+
+        } catch (IOException ex) {
+
         }
 
-        return message;
+        return null;
     }
 }
+
+
+
+/*
+private void displayAllUsersMessages(String username) {
+        String query;
+
+        if (this.isUserExist(username)) {
+            try {
+                String pathToMessage;
+
+                query = "select message from messages where username='" + username + "';\n";
+                this.database.executeQuery(query);
+                ResultSet rs = this.database.getResultSet();
+
+                while(rs.next()) {
+                    pathToMessage = rs.getString("message");
+                    display(new File(pathToMessage));
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void display(File emlFile) {
+        Properties props = System.getProperties();
+        props.put("mail.host", "smtp.tolik.com");
+        props.put("mail.transport.protocol", "smtp");
+
+        Session mailSession = Session.getDefaultInstance(props, null);
+
+        try {
+            InputStream source = new FileInputStream(emlFile);
+            MimeMessage message = new MimeMessage(mailSession, source);
+
+            System.out.println("Subject : " + message.getSubject());
+            System.out.println("From : " + message.getFrom()[0]);
+            System.out.println("--------------");
+            System.out.println("Body : " +  message.getContent());
+            System.out.println();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+ */

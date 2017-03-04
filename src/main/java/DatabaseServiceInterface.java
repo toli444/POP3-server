@@ -1,5 +1,5 @@
-import javax.mail.internet.MimeMessage;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by toli444 on 1.3.17.
@@ -7,5 +7,5 @@ import java.util.ArrayList;
 public interface DatabaseServiceInterface {
     boolean isUserExist(String username);
     boolean authenticateUser(String username, String password);
-    ArrayList<MimeMessage> getUsersMessages(String username);
+    ArrayList<String> getUsersMessages(String username);
 }
